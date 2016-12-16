@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   get '/users/:id'=> 'users#show'
   delete '/users/:id'=> 'users#destroy'
 
-  get 'events/'=> 'events#index'
-  post 'events/'=> 'events#create'
+  get '/events/'=> 'events#index'
+  post '/events/'=> 'events#create'
+  get '/events/:id/edit'=> 'events#edit'
+  patch '/events/:id'=> 'events#update'
   delete 'events/:id'=> 'events#destroy'
-  post 'join/:id'=> 'events#join'
-  delete 'join/:id'=> 'events#unjoin'
+  post '/join/:id'=> 'events#join'
+  delete '/join/:id'=> 'events#unjoin'
 
   get 'events/:id'=> 'comments#index'
   # get 'comments/index'=> 'comments#index'

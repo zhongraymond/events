@@ -40,6 +40,21 @@ def unjoin
   redirect_to "/events/"
 end
 
+def edit
+  @event = Event.find(params[:id])
+end
+
+def update
+  @event = Event.find(params[:id])
+  if @event.update_attributes(event_params)
+
+    redirect_to "/events/"
+  else
+    flash[:errors] = @user.errors.full_messages
+    redirect_to "/users/#{@user.id}/edit"
+  end
+end
+
 def destroy
   # binding.pry
   event = Event.find(params[:id]).delete
